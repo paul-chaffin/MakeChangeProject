@@ -25,21 +25,21 @@ public class CashRegister {
 
 	}
 
-	public static void getBills(double total) {
-		total = (int)(total);
-		while (total > 10.0) {
+	public static void getBills(double changeBills) {
+		changeBills = (int)(changeBills);
+		while (changeBills >= 10.0) {
 			billsTen++;
 		}
-		while (total > 5.0) {
+		while (changeBills >= 5.0) {
 			billsFive++;
 		}
-		while (total > 1.0) {
+		while (changeBills >= 1.0) {
 			billsOne++;
 		}
 	}
 
-	public static void getCoins() {
-
+	public static void getCoins(double changeCoins) {
+		changeCoins = tendered % 10;
 	}
 	
 	public static void printFinalChange() {
