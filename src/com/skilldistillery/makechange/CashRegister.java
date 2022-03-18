@@ -20,29 +20,60 @@ public class CashRegister {
 		System.out.println("Enter the cost: > ");
 		amount = kb.nextDouble();
 		kb.close();
-		getBills(amount);
-		printFinalChange();
+		getBills(bulkChange);
+		printFinalBills();
+		printFinalCoins();
 
 	}
 
+	public static void getPayment() {
+		if (tendered < amount) {
+			System.out.println("Insufficient funds.");
+			break;
+		} else {
+			bulkChange = amount - tendered;
+			getBills(bulkChange);
+		}
+	}
+
 	public static void getBills(double changeBills) {
-		changeBills = (int)(changeBills);
+		changeBills = (int) (changeBills);
 		while (changeBills >= 10.0) {
 			billsTen++;
+			changeBills -= 10.0;
 		}
 		while (changeBills >= 5.0) {
 			billsFive++;
+			changeBills -= 5.0;
 		}
 		while (changeBills >= 1.0) {
 			billsOne++;
+			changeBills -= 1.0;
 		}
+		getCoins(changeBills);
 	}
 
 	public static void getCoins(double changeCoins) {
 		changeCoins = tendered % 10;
+		while (changeCoins > .25) {
+			coinsQ++;
+			changeCoins -= .25;
+		}
+		while (changeCoins > .10) {
+			coinsD++;
+			changeCoins -= .10;
+		}
+		while (changeCoins > .05) {
+			coinsN++;
+			changeCoins -= .05;
+		}
+		while (changeCoins > .01) {
+			coinsP++;
+			changeCoins -= .01;
+		}
 	}
-	
-	public static void printFinalChange() {
+
+	public static void printFinalBills() {
 		if (billsTen > 0) {
 			System.out.println("Tens: " + billsTen);
 		}
@@ -52,6 +83,9 @@ public class CashRegister {
 		if (billsOne > 0) {
 			System.out.println("Ones: " + billsOne);
 		}
+	}
+
+	public static void printFinalCoins() {
 		if (coinsQ > 0) {
 			System.out.println("25c: " + coinsQ);
 		}
@@ -65,7 +99,7 @@ public class CashRegister {
 			System.out.println("1c: " + coinsP);
 		}
 	}
-	
+
 	public static v
 
 }
