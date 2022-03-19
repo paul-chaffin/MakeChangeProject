@@ -5,24 +5,22 @@ import java.util.Scanner;
 public class CashRegister {
 
 	public static double amountSale = 0, amountTendered = 0, bulkChange = 0;
-	public static double prettyCoins, prettyBills;
+	public static int prettyCoins, prettyBills;
 	public static int billsTen = 0, billsFive = 0, billsOne = 0;
 	public static int coinsQ = 0, coinsD = 0, coinsN = 0, coinsP = 0;
 
 	public static void main(String[] args) {
 
-		getAmount();
+		makeChange();
 
-		printFinalBills();
-		printFinalCoins();
 	}
 
-	public static void getAmount() {
+	public static void makeChange() {
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Enter the purchase cost: > ");
+		System.out.print("Enter the purchase cost:  > ");
 		amountSale = kb.nextDouble();
 		kb.nextLine();
-		System.out.println("Enter your payment amount: > ");
+		System.out.print("Enter the payment amount: > ");
 		amountTendered = kb.nextDouble();
 		kb.close();
 		getPayment();
@@ -36,10 +34,10 @@ public class CashRegister {
 			System.out.println("No change due.");
 		} else {
 			bulkChange = amountTendered - amountSale;
-			prettyBills = (int) bulkChange;
-//			System.out.printf("Change due: $%s.%s", prettyBills, prettyCoins);
-//			TODO: FIX PRETTY PRINTING
+			prettyChange();
 			getBills(bulkChange);
+			printFinalBills();
+			printFinalCoins();
 		}
 	}
 
@@ -60,8 +58,7 @@ public class CashRegister {
 	}
 
 	public static void getCoins(double changeCoins) {
-		changeCoins = (changeCoins % 10);
-		formatCoins(changeCoins);
+		changeCoins = (changeCoins % 10) + .001;
 		while (changeCoins >= .25) {
 			coinsQ++;
 			changeCoins -= .25;
@@ -80,34 +77,44 @@ public class CashRegister {
 		}
 	}
 
-	public static void formatCoins(double uglyCoins) {
-		prettyCoins = (int) (uglyCoins * 100);
+	public static void prettyChange() {
+		prettyBills = (int) bulkChange;
+		double modCoins = bulkChange % 1 + .001;
+//		System.out.println("modCoins" + modCoins);
+		prettyCoins = (int) (modCoins * 100);
+		System.out.println();
+		System.out.println("Change due: $" + prettyBills + "." + prettyCoins);
+		System.out.println("------------------");
+		System.out.println();
+
 	}
 
 	public static void printFinalBills() {
+		System.out.println("Bills:");
 		if (billsTen > 0) {
-			System.out.println("$10: " + billsTen);
+			System.out.println("\t$10: " + billsTen);
 		}
 		if (billsFive > 0) {
-			System.out.println("$5: " + billsFive);
+			System.out.println("\t$5:  " + billsFive);
 		}
 		if (billsOne > 0) {
-			System.out.println("$1: " + billsOne);
+			System.out.println("\t$1:  " + billsOne);
 		}
 	}
 
 	public static void printFinalCoins() {
+		System.out.println("Coins:");
 		if (coinsQ > 0) {
-			System.out.println("25c: " + coinsQ);
+			System.out.println("\t25c: " + coinsQ);
 		}
 		if (coinsD > 0) {
-			System.out.println("10c: " + coinsD);
+			System.out.println("\t10c: " + coinsD);
 		}
 		if (coinsN > 0) {
-			System.out.println("5c: " + coinsN);
+			System.out.println("\t5c:  " + coinsN);
 		}
 		if (coinsP > 0) {
-			System.out.println("1c: " + coinsP);
+			System.out.println("\t1c:  " + coinsP);
 		}
 	}
 

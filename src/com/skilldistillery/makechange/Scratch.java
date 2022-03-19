@@ -10,8 +10,8 @@ public class Scratch {
 //		System.out.println(change);
 		double bills = 20.13;
 		System.out.println(bills);
-		System.out.println(bills);
 		bills = bills % 1;
+		System.out.println(bills);
 		
 		
 	}

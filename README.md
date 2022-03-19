@@ -4,13 +4,28 @@
 
 ## Overview
 
-CashRegister makes change given an amount and tender, and includes itemized bill and coin output.
+CashRegister makes change given a cost and payment, including itemized bill
+and coin output.
+
+## How To Use This Program
+When prompted, enter the cost of the sale followed by the payment amount.
 
 ## Technologies/Skills Used
 
-
 * Java
 * Eclipse
-TODO: OTHERS
+* Properly scoped variables
+* While
+* If/Else
+* Casting
+* Method/calls
+* Mod, addition, subtraction, incrementation
+
 ## Lessons Learned
-TODO: COMPLETE THIS
+
+* Manual rounding of a double can be achieved with addition and casting
+* Methods make troubleshooting and flow leagues easier
+* When passing-by-value to methods consecutively (daisy chain), make sure your
+calls are in the correct order.
+* mod and casting are powerful techniques
+* Don't work too hard formatting string output
