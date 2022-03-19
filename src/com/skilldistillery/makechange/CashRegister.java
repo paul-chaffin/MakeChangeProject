@@ -115,7 +115,7 @@ public class CashRegister {
 	}
 
 	public static void printFinalCoins() {
-		if (billsTen + billsFive + billsOne < 1) {
+		if (coinsQ + coinsD + coinsN + coinsP < 1) {
 			System.out.print("");
 		} else {
 			System.out.println("Coins:");
