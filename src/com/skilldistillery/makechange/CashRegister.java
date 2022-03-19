@@ -82,8 +82,7 @@ public class CashRegister {
 		double modCoins = bulkChange % 1 + .001;
 //		System.out.println("modCoins" + modCoins);
 		prettyCoins = (int) (modCoins * 100);
-		System.out.println("pC: " + prettyCoins);
-
+//		System.out.println("pC: " + prettyCoins);
 		System.out.println();
 		System.out.print("Change due: $" + prettyBills + ".");
 		if (prettyCoins % 10 == prettyCoins) {
@@ -133,10 +132,6 @@ public class CashRegister {
 				System.out.println("\t1c:  " + coinsP);
 			}
 		}
-	}
-
-	public static void addZero() {
-
 	}
 
 }
