@@ -82,40 +82,61 @@ public class CashRegister {
 		double modCoins = bulkChange % 1 + .001;
 //		System.out.println("modCoins" + modCoins);
 		prettyCoins = (int) (modCoins * 100);
+		System.out.println("pC: " + prettyCoins);
+
 		System.out.println();
-		System.out.println("Change due: $" + prettyBills + "." + prettyCoins);
+		System.out.print("Change due: $" + prettyBills + ".");
+		if (prettyCoins % 10 == prettyCoins) {
+			System.out.printf("0%s", prettyCoins);
+			System.out.println();
+		} else {
+			System.out.println(prettyCoins);
+		}
 		System.out.println("------------------");
 		System.out.println();
 
 	}
 
 	public static void printFinalBills() {
-		System.out.println("Bills:");
-		if (billsTen > 0) {
-			System.out.println("\t$10: " + billsTen);
-		}
-		if (billsFive > 0) {
-			System.out.println("\t$5:  " + billsFive);
-		}
-		if (billsOne > 0) {
-			System.out.println("\t$1:  " + billsOne);
+		if (billsTen + billsFive + billsOne < 1) {
+			System.out.print("");
+		} else {
+			System.out.println("Bills:");
+
+			if (billsTen > 0) {
+				System.out.println("\t$10: " + billsTen);
+			}
+			if (billsFive > 0) {
+				System.out.println("\t$5:  " + billsFive);
+			}
+			if (billsOne > 0) {
+				System.out.println("\t$1:  " + billsOne);
+			}
 		}
 	}
 
 	public static void printFinalCoins() {
-		System.out.println("Coins:");
-		if (coinsQ > 0) {
-			System.out.println("\t25c: " + coinsQ);
+		if (billsTen + billsFive + billsOne < 1) {
+			System.out.print("");
+		} else {
+			System.out.println("Coins:");
+			if (coinsQ > 0) {
+				System.out.println("\t25c: " + coinsQ);
+			}
+			if (coinsD > 0) {
+				System.out.println("\t10c: " + coinsD);
+			}
+			if (coinsN > 0) {
+				System.out.println("\t5c:  " + coinsN);
+			}
+			if (coinsP > 0) {
+				System.out.println("\t1c:  " + coinsP);
+			}
 		}
-		if (coinsD > 0) {
-			System.out.println("\t10c: " + coinsD);
-		}
-		if (coinsN > 0) {
-			System.out.println("\t5c:  " + coinsN);
-		}
-		if (coinsP > 0) {
-			System.out.println("\t1c:  " + coinsP);
-		}
+	}
+
+	public static void addZero() {
+
 	}
 
 }
