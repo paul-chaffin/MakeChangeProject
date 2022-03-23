@@ -20,6 +20,7 @@ When prompted, enter the cost of the sale followed by the payment amount.
 * Casting
 * Method/calls
 * Mod, addition, subtraction, incrementation
+* Printf
 
 ## Lessons Learned
 
